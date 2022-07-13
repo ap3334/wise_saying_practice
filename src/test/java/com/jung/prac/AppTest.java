@@ -3,6 +3,7 @@ package com.jung.prac;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ class AppTest {
 
         assertEquals("삭제", rq.getPath());
         assertEquals(true, rq.getQueryParam().containsKey("id"));
-        assertEquals(1, rq.getQueryParam().get("id"));
+        assertEquals("1", rq.getQueryParam().get("id"));
     }
 
     @Test
@@ -55,7 +56,7 @@ class AppTest {
         Map<String, String> queryParam = rq.getQueryParam();
 
         assertEquals("삭제", rq.getPath());
-        assertEquals(null, rq.getQueryParam());
+        assertEquals(new HashMap<>(), rq.getQueryParam());
     }
 
     @Test
