@@ -40,6 +40,19 @@ public class App {
 
                     break;
 
+                case "목록":
+
+                    System.out.println("번호 / 작가 / 명언");
+                    System.out.println("-------------------------");
+
+                    for (int i = wiseSayingList.size() - 1; i >= 0; i--) {
+                        WiseSaying temp = wiseSayingList.get(i);
+
+                        System.out.printf("%d / %s / %s\n", i + 1, temp.getAuthor(), temp.getContent());
+                    }
+
+                    break;
+
                 case "종료":
                     break outer;
 
