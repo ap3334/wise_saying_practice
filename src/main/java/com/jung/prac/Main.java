@@ -1,2 +1,9 @@
-package com.jung.prac;public class Main {
+package com.jung.prac;
+
+public class Main {
+
+    public static void main(String[] args) {
+        new App().run();
+    }
+
 }
