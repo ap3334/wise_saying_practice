@@ -55,7 +55,7 @@ public class App {
 
     }
 
-    public void deleteById(Rq rq) {
+    public void delete(Rq rq) {
 
 
         int id = Integer.parseInt((rq.getQueryParam("id", "0")));
