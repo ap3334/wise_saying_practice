@@ -6,8 +6,10 @@ public class App {
     public static void run() {
 
         Scanner sc = new Scanner(System.in);
-        
+        int wiseSayingId = 0;
+
         System.out.println("==Wise Saying Terminal==");
+
 
         outer:
         while (true) {
