@@ -21,7 +21,10 @@ public class App {
 
             String cmd = sc.nextLine().trim();
 
-            switch (cmd) {
+            Rq rq = new Rq(cmd);
+            String path = rq.getPath();
+
+            switch (path) {
 
                 case "등록":
 
