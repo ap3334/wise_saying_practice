@@ -44,6 +44,12 @@ public class App {
 
                     break;
 
+                case "수정":
+
+                    modify(rq);
+
+                    break;
+
                 case "종료":
                     break outer;
 
@@ -52,6 +58,41 @@ public class App {
 
         }
 
+
+    }
+
+    public void modify(Rq rq) {
+
+        int id = Integer.parseInt((rq.getQueryParam("id", "0")));
+
+        if (id == 0) {
+            System.out.println("id를 입력해주세요");
+        }
+
+        WiseSaying foundWiseSaying = findById(id);
+
+        if (foundWiseSaying == null) {
+            System.out.println("존재하지 않는 id입니다.");
+        }
+        else {
+            WiseSaying wiseSaying = new WiseSaying();
+
+            System.out.printf("명언(기존) : %s\n", foundWiseSaying.getContent());
+            System.out.printf("명언 : ");
+
+            String newContent = sc.nextLine();
+
+
+            System.out.printf("작가(기존) : %s\n", foundWiseSaying.getAuthor());
+            System.out.printf("작가 : ");
+
+            String newAuthor = sc.nextLine();
+
+            foundWiseSaying.setContent(newContent);
+            foundWiseSaying.setAuthor(newAuthor);
+
+            System.out.printf("%d번 명언이 수정되었습니다.\n", foundWiseSaying.getId());
+        }
 
     }
 
