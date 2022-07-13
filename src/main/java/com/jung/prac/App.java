@@ -40,7 +40,7 @@ public class App {
 
                 case "삭제":
 
-//                    deleteById(id);
+                    delete(rq);
 
                     break;
 
@@ -55,6 +55,38 @@ public class App {
 
     }
 
+    public void deleteById(Rq rq) {
+
+
+        int id = Integer.parseInt((rq.getQueryParam("id", "0")));
+
+        if (id == 0) {
+            System.out.println("id를 입력해주세요");
+        }
+
+        WiseSaying foundWiseSaying = findById(id);
+
+        if (foundWiseSaying == null) {
+            System.out.println("존재하지 않는 id입니다.");
+        }
+        else {
+            wiseSayingList.remove(foundWiseSaying);
+            System.out.printf("%d번 명언이 삭제되었습니다.\n", foundWiseSaying.getId());
+        }
+
+
+    }
+
+    public WiseSaying findById(int id) {
+
+        for (WiseSaying wiseSaying : wiseSayingList) {
+            if (wiseSaying.getId() == id) return wiseSaying;
+        }
+
+        return null;
+
+    }
+
     public void printList() {
 
         System.out.println("번호 / 작가 / 명언");
@@ -63,7 +95,7 @@ public class App {
         for (int i = wiseSayingList.size() - 1; i >= 0; i--) {
             WiseSaying temp = wiseSayingList.get(i);
 
-            System.out.printf("%d / %s / %s\n", i + 1, temp.getAuthor(), temp.getContent());
+            System.out.printf("%d / %s / %s\n", temp.getId(), temp.getAuthor(), temp.getContent());
         }
 
     }
@@ -79,10 +111,11 @@ public class App {
         WiseSaying wiseSaying = new WiseSaying();
         wiseSaying.setContent(content);
         wiseSaying.setAuthor(author);
+        wiseSaying.setId(++wiseSayingId);
 
         wiseSayingList.add(wiseSaying);
 
-        System.out.printf("%d번 명언이 등록되었습니다.\n", ++wiseSayingId);
+        System.out.printf("%d번 명언이 등록되었습니다.\n", wiseSaying.getId());
         return wiseSayingId;
 
     }
