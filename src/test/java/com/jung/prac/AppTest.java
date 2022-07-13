@@ -26,6 +26,15 @@ class AppTest {
 
     }
 
+    @Test
+    public void 쿼리문_테스트() {
 
+        Rq rq = new Rq("삭제?id=1");
+
+        int id = rq.getQueryParam("id", 0);
+
+        assertEquals(1, id);
+
+    }
 
 }
