@@ -24,8 +24,8 @@ class AppTest {
         assertEquals("명언", wiseSayingList.get(0).getContent());
         assertEquals("작가", wiseSayingList.get(0).getAuthor());
 
-
-
     }
+
+
 
 }
