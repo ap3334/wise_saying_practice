@@ -17,7 +17,15 @@ public class App {
 
             switch (cmd) {
 
+                case "등록":
 
+                    System.out.printf("명언 : ");
+                    String content = sc.nextLine();
+
+                    System.out.printf("작가 : ");
+                    String author = sc.nextLine();
+
+                    break;
 
                 case "종료":
                     break outer;
