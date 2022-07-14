@@ -122,4 +122,39 @@ public class WiseSayingController {
             System.out.printf("작가 : %s\n", foundWiseSaying.getAuthor());
         }
     }
+
+    public void searchByKeyword(Rq rq) {
+
+        String keyword = rq.getQueryParam("keyword", "0");
+
+        if (keyword.equals("")) {
+            System.out.println("찾는 keyword를 입력해주세요.");
+        }
+
+        List<WiseSaying> foundWiseSayingList = wiseSayingRepository.findByKeyword(keyword);
+
+        for (WiseSaying wiseSaying : foundWiseSayingList) {
+            System.out.printf("==%d번 명언==\n", wiseSaying.getId());
+            System.out.printf("명언 : %s\n", wiseSaying.getContent());
+            System.out.printf("작가 : %s\n", wiseSaying.getAuthor());
+        }
+    }
+
+    public void searchByAuthor(Rq rq) {
+
+        String target = rq.getQueryParam("author", "0");
+
+        if (target.equals("")) {
+            System.out.println("찾는 작가를 입력해주세요.");
+        }
+
+        List<WiseSaying> foundWiseSayingList = wiseSayingRepository.findByAuthor(target);
+
+        for (WiseSaying wiseSaying : foundWiseSayingList) {
+            System.out.printf("==%d번 명언==\n", wiseSaying.getId());
+            System.out.printf("명언 : %s\n", wiseSaying.getContent());
+            System.out.printf("작가 : %s\n", wiseSaying.getAuthor());
+        }
+
+    }
 }

@@ -27,7 +27,16 @@ public class App {
 
                 case "검색":
 
-                    wiseSayingController.searchById(rq);
+                    if (rq.getQueryParam().containsKey("keyword")){
+                        wiseSayingController.searchByKeyword(rq);
+                    }
+                    else if (rq.getQueryParam().containsKey("author")) {
+                        wiseSayingController.searchByAuthor(rq);
+                    }
+                    else {
+                        wiseSayingController.searchById(rq);
+
+                    }
 
                     break;
 
