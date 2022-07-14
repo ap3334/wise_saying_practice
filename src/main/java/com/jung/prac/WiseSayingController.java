@@ -102,4 +102,24 @@ public class WiseSayingController {
         System.out.printf("%d번 명언이 등록되었습니다.\n", wiseSaying.getId());
 
     }
+
+    public void searchById(Rq rq) {
+
+        int id = Integer.parseInt(rq.getQueryParam("id", "0"));
+
+        if (id == 0) {
+            System.out.println("id를 입력해주세요.");
+        }
+
+        WiseSaying foundWiseSaying = wiseSayingRepository.findById(id);
+
+        if (foundWiseSaying == null) {
+            System.out.println("찾는 번호의 명언은 존재하지 않습니다.");
+        }
+        else {
+            System.out.printf("==%d번 명언==\n", foundWiseSaying.getId());
+            System.out.printf("명언 : %s\n", foundWiseSaying.getContent());
+            System.out.printf("작가 : %s\n", foundWiseSaying.getAuthor());
+        }
+    }
 }

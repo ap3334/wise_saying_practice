@@ -25,6 +25,12 @@ public class App {
 
             switch (path) {
 
+                case "검색":
+
+                    wiseSayingController.searchById(rq);
+
+                    break;
+
                 case "등록":
 
                     wiseSayingController.register();
